@@ -20,8 +20,8 @@ Match, player, and agent data from VCT 2025 (Kickoff, Stage 1, Stage 2, Masters,
 
 - **Pick rate varies far more than win rate.** Omen is picked in ~13% of instances — nearly double the next-highest agents — while win rate across almost all agents stays tightly compressed between 45-55%, regardless of how often they're picked.
 - **Agent performance shifts by map, but small sample sizes distort many of the most extreme swings.** Cells with fewer than 5 games played are flagged separately, since a single game can produce a misleadingly clean 0% or 100%.
-- **Team composition alone has limited predictive power.** A logistic regression model trained on role counts achieved 52.4% accuracy — barely above the 50% baseline for random guessing — with small, mixed-direction coefficients and evenly distributed prediction errors.
-- **Adding map as a feature made predictions worse, not better.** Accuracy dropped to 47.1%, below random guessing, with a clear bias toward under-predicting wins. This points to added model complexity (one-hot encoding roughly tripled the feature count) outweighing any genuine signal map context might add.
+- **Team composition alone has limited predictive power.** A logistic regression model trained on role counts achieved 51.95% accuracy — barely above the 50% baseline for random guessing — with small, mixed-direction coefficients and evenly distributed prediction errors.
+- **Adding map as a feature had no effect on predictions.** Accuracy remained at 51.95%, slightly above random guessing. This points to added model complexity (one-hot encoding roughly tripled the feature count) outweighing any genuine signal map context might add.
 - **Taken together, composition and map explain very little of match outcome** 
   — see Limitations below for the full picture.
 
@@ -29,7 +29,7 @@ Match, player, and agent data from VCT 2025 (Kickoff, Stage 1, Stage 2, Masters,
 
 This analysis isolates two specific factors — team role composition and map — out of everything that actually determines a Valorant match's outcome. Several important caveats follow from that scope:
 
-- **Player skill, coordination, and execution are not captured at all**, and are almost certainly the dominant factors in who wins a match. Both models' weak performance (52.4% and 47.1% accuracy, against a 50% baseline) is consistent with this — composition alone appears to explain very little of the outcome.
+- **Player skill, coordination, and execution are not captured at all**, and are almost certainly the dominant factors in who wins a match. Both models' weak performance 51.95% accuracy, against a 50% baseline) is consistent with this — composition alone appears to explain very little of the outcome.
 - **Some agent-map combinations have very few recorded games**, which can produce misleadingly extreme win rates (0% or 100%) from a single result. These are flagged in the heatmap rather than removed, but should be read with caution.
 - **Chinese regional events have documented data gaps** in the source dataset, meaning this region is likely underrepresented relative to its actual competitive activity.
 - **Map coefficients in the comp+map model are relative to a dropped baseline map**, not standalone effects — a positive coefficient means "better than baseline, holding composition constant," not "this map favors this composition in isolation."
