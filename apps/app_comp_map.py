@@ -13,7 +13,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 st.title("Valorant Composition Win Predictor")
-st.caption("⚠️ This model achieved only ~52% accuracy in testing — barely above random guessing. Predictions here are illustrative, not confident forecasts of match outcomes.")
+st.caption("⚠️ This model which factors comp and map achieved only ~52% accuracy in testing — barely above random guessing. Predictions here are illustrative, not confident forecasts of match outcomes.")
 
 input_dict = {feature: 0 for feature in model.feature_names_in_}
 

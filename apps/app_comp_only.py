@@ -13,7 +13,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 st.title("Valorant Composition Win Predictor")
-st.caption("⚠️ This model achieved only ~52% accuracy in testing — barely above random guessing. Predictions here are illustrative, not confident forecasts of match outcomes.")
+st.caption("⚠️ This model which factors comp achieved only ~52% accuracy in testing — barely above random guessing. Predictions here are illustrative, not confident forecasts of match outcomes.")
 
 controller = st.slider('Controller', min_value=0, max_value=5, value=0)
 duelist = st.slider('Duelist', min_value=0, max_value=5, value=0)
